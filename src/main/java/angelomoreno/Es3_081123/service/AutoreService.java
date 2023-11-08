@@ -7,10 +7,7 @@ import angelomoreno.Es3_081123.repositories.AutoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
-import java.util.Random;
 @Service
 public class AutoreService {
     @Autowired
