@@ -29,6 +29,17 @@ public class BlogService {
     }
 
     public Blog modifyBlog(long id, Blog body) {
+        for (Blog blog : blogRepo.findAll()) {
+            if (blog.getId() == id) {
+                blog.setCategoria(body.getCategoria());
+                blog.setTitolo(body.getTitolo());
+                blog.setContenuto(body.getContenuto());
+                blog.setMinutiLettura(body.getMinutiLettura());
+                blog.setAutore(body.getAutore());
+                return blogRepo.save(blog)
+            }
+        }
+        throw new NotFoundException("Non è stato trovato nessun autore con id " + id);
     }
 
     public void deleteBlog(long id) {
