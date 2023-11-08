@@ -32,7 +32,16 @@ public class AutoreService {
     }
 
     public Autore modifyAutore(long id, Autore body) {
-
+        for (Autore autore : autoreRepo.findAll()) {
+            if (autore.getId() == id) {
+                autore.setNome(body.getNome());
+                autore.setCognome(body.getCognome());
+                autore.setEmail(body.getEmail());
+                autore.setDataDiNascita(body.getDataDiNascita());
+                return autoreRepo.save(autore);
+            }
+        }
+        throw new NotFoundException(("Non è stato trovato nessun autore con id " + id));
     }
 
     public void deleteAutore(long id) {
