@@ -36,13 +36,13 @@ public class BlogService {
                 blog.setContenuto(body.getContenuto());
                 blog.setMinutiLettura(body.getMinutiLettura());
                 blog.setAutore(body.getAutore());
-                return blogRepo.save(blog)
+                return blogRepo.save(blog);
             }
         }
         throw new NotFoundException("Non è stato trovato nessun autore con id " + id);
     }
 
     public void deleteBlog(long id) {
-
+        blogRepo.delete(this.findById(id));
     }
 }
