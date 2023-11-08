@@ -20,6 +20,7 @@ public class BlogService {
     }
 
     public List<Blog> getBlogs() {
+        return blogRepo.findAll();
     }
 
     public Blog findById(long id) {
