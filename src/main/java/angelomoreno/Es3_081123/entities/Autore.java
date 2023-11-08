@@ -23,6 +23,4 @@ public class Autore {
     private String email;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataDiNascita;
-    @OneToMany(mappedBy = "autore")
-    private List<Blog> blogs;
 }
