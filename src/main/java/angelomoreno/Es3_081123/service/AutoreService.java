@@ -2,6 +2,7 @@ package angelomoreno.Es3_081123.service;
 
 import angelomoreno.Es3_081123.entities.Autore;
 import angelomoreno.Es3_081123.exceptions.BadRequestException;
+import angelomoreno.Es3_081123.exceptions.NotFoundException;
 import angelomoreno.Es3_081123.repositories.AutoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,9 +28,11 @@ public class AutoreService {
     }
 
     public Autore findById(long id) {
+        return autoreRepo.findById(id).orElseThrow(() -> new NotFoundException("Non è stato trovato nessun autore con id " + id));
     }
 
     public Autore modifyAutore(long id, Autore body) {
+
     }
 
     public void deleteAutore(long id) {
