@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,4 +23,6 @@ public class Autore {
     private String email;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataDiNascita;
+    @OneToMany(mappedBy = "autore")
+    private List<Blog> blogs;
 }

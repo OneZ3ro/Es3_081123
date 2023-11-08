@@ -19,4 +19,7 @@ public class Blog {
     private String titolo;
     private String contenuto;
     private long minutiLettura;
+    @ManyToOne
+    @JoinColumn(name = "autore", nullable = false)
+    private Autore autore;
 }
