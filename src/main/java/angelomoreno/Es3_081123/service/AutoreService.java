@@ -16,6 +16,10 @@ public class AutoreService {
     private AutoreRepository autoreRepo;
 
     public Autore save(Autore body) {
+        autoreRepo.findByEmail(body.getEmail()).ifPresent(autore -> {
+            throw new BadRequestException("L'email " + autore.getEmail() + " è gia utilizzata da qualcun altro. Provane un'altra");
+        });
+        return autoreRepo.save(body);
     }
 
     public List<Autore> getAutores() {
