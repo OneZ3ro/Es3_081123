@@ -45,5 +45,6 @@ public class AutoreService {
     }
 
     public void deleteAutore(long id) {
+        autoreRepo.delete(this.findById(id));
     }
 }
