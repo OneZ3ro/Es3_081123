@@ -23,7 +23,7 @@ public class AutoreService {
     }
 
     public List<Autore> getAutores() {
-
+        return autoreRepo.findAll();
     }
 
     public Autore findById(long id) {
